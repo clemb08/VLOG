@@ -1,0 +1,27 @@
+{% extends 'index/index.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block banniere %}
+    <div class="banniereFP"></div>
+{% endblock %}
+
+{% block titleCategory %}  
+        <div class="titleCategory">Latest Food &amp People</h2></div>
+{% endblock %}
+
+        {% block firstFunction %} 
+            {% for article in firstFP %}
+                <a class="col-lg-5" href="{{ path('viewRecipe', {'id': article.id}) }}">
+                    {{ parent() }}
+                </a>
+            {% endfor %}
+        {% endblock %}
+
+        {% block listFunction %} 
+            {% for article in listFP %}
+                <a class="col-lg-3" href="{{ path('viewRecipe', {'id': article.id}) }}">
+                    {{ parent() }}
+                </a>
+            {% endfor %}
+        {% endblock %}

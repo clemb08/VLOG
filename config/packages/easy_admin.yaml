@@ -1,0 +1,201 @@
+easy_admin:
+    design:
+        form_theme: # Both themes are for ckeditor integration
+            - "@EasyAdmin/form/bootstrap_4.html.twig"
+            - "@FOSCKEditor/Form/ckeditor_widget.html.twig"
+
+    site_name: 'Draw our future'
+    entities:
+#        # List the entity class name you want to manage
+
+        FoodandPeople:
+            class: App\Entity\FoodandPeople
+            list:
+                fields:
+                    - { property: 'title', type: 'text' }
+                    - { property: 'tagline', type: 'text' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.foodandpeople_images%' }
+                    - { property: 'idInterview', type: 'text' }
+                    - { property: 'idRecipe', type: 'text' }
+                    - { property: 'country', type: 'country' }
+                    - { property: 'published', type: 'boolean' }
+
+            form:
+                fields:
+                    - { type: 'group', columns: 12, label: 'Title', column: 12 }
+                    - { property: 'title', type: 'text', name: '' }
+                    - { type: 'group', columns: 6, label: 'Tagline', column: 6 }
+                    - { property: 'tagline', type: 'text', name: '' }
+                    - { property: 'country', type: 'country' }
+                    - { type: 'group', columns: 6, label: 'Avatar', column: 6 }
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - { type: 'group', columns: 6, label: 'Interview', column: 6 }
+                    - { property: 'idInterview', type: 'entity', type_options: { class: 'App\Entity\Interview' } }
+                    - { type: 'group', columns: 6, label: 'Recipe', column: 6 }
+                    - { property: 'idRecipe', type: 'entity', type_options: { class: 'App\Entity\Recipe' } }
+                    - { type: 'group', columns: 12, label: 'Recipe' }
+                    - { property: 'published' }
+
+        Recipe:
+            class: App\Entity\Recipe
+            list:
+                fields:
+                    - { property: 'title', type: 'text' }
+                    - { property: 'tagline', type: 'text' }
+                    - { property: 'country', type: 'country' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.recipe_images%' }
+                    - { property: 'published' }
+            
+            show:
+                fields:
+                    - { property: 'image', type: 'image', base_path: '%app.path.recipe_images%' } 
+            
+            form:
+                fields:
+                    - { type: 'group', columns: 12, label: 'Title', column: 12 }
+                    - { property: 'title', type: 'text', name: '' }
+                    - { type: 'group', columns: 6, label: 'Tagline', column: 6 }
+                    - { property: 'tagline', type: 'text', name: '' }
+                    - { type: 'group', columns: 6, label: 'Country', column: 6 }
+                    - { property: 'country', type: 'country', name: '' }
+                    - { type: 'group', columns: 6, label: 'List of ingredients - Quantity' }
+                    - { property: 'listingredients', type: 'collection' }
+                    - { type: 'group', columns: 6, label: 'Avatar', column: 6 }
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - { type: 'group', columns: 12, label: 'Recipe' }
+                    - { property: 'step_recipe', type: 'fos_ckeditor' }
+                    - { property: 'published' }
+
+        Interview:
+            class: App\Entity\Interview
+            list:
+                fields:
+                    - { property: 'title', type: 'text' }
+                    - { property: 'name', type: 'text' }
+                    - { property: 'tagline', type: 'text' }
+                    - { property: 'country', type: 'country' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.interview_images%' }
+                    - { property: 'published' }
+
+            form:
+                fields:
+                    - { type: 'group', columns: 12, label: 'Title', column: 12 }
+                    - { property: 'title', type: 'text', name: ' ' }
+                    - { type: 'group', columns: 6, label: 'Tagline', column: 6 }
+                    - { property: 'tagline', type: 'text', name: ' ' }
+                    - { property: 'country', type: 'country', name: ' ' }
+                    - { type: 'group', columns: 6, label: 'Country', column: 6 }
+                    - { property: 'name', type: 'text' }
+                    - { property: 'position', type: 'text' }
+                    - { type: 'group', columns: 6, label: 'Categories' }
+                    - { property: 'video', type: 'url' }
+                    - { type: 'group', columns: 6, label: 'Avatar', column: 6 }
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - { type: 'group', columns: 12, label: 'Interview' }
+                    - { property: 'content', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+                    - { property: 'published' }
+        
+        Travel: 
+            class: App\Entity\Travel
+            list:
+                fields:
+                    - { property: 'title', type: 'text' }
+                    - { property: 'tagline', type: 'text' }
+                    - { property: 'country', type: 'country' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.travel_images%' }
+                    - { property: 'published' }
+            
+            form:
+                fields:
+                    - { type: 'group', columns: 12, label: 'Title', column: 12 }
+                    - { property: 'title', type: 'text', name: ' ' }
+                    - { type: 'group', columns: 6, label: 'Tagline', column: 6 }
+                    - { property: 'tagline', type: 'text', name: ' ' }
+                    - { type: 'group', columns: 6, label: 'Country', column: 6 }
+                    - { property: 'country', type: 'country', name: ' ' }
+                    - { type: 'group', columns: 6, label: 'Categories' }
+                    - { property: 'category', type: 'collection' }
+                    - { type: 'group', columns: 6, label: 'Avatar', column: 6 }
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - { type: 'group', columns: 12, label: 'Article' }
+                    - { property: 'content', type: 'fos_ckeditor' }
+                    - { property: 'published' }
+
+        Volunteer: 
+            class: App\Entity\Volunteer
+            list:
+                fields:
+                    - { property: 'title', type: 'text' }
+                    - { property: 'tagline', type: 'text' }
+                    - { property: 'country', type: 'country' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.volunteer_images%' }
+                    - { property: 'published' }
+            
+            form:
+                fields:
+                    - { type: 'group', columns: 12, label: 'Title', column: 12 }
+                    - { property: 'title', type: 'text', name: ' ' }
+                    - { type: 'group', columns: 6, label: 'Tagline', column: 6 }
+                    - { property: 'tagline', type: 'text', name: ' ' }
+                    - { type: 'group', columns: 6, label: 'Country', column: 6 }
+                    - { property: 'country', type: 'country', name: ' ' }
+                    - { type: 'group', columns: 6, label: 'Audit' }
+                    - { property: 'audit', type: 'entity', type_options: { class: 'App\Entity\Audit' } }
+                    - { type: 'group', columns: 6, label: 'Avatar', column: 6 }
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - { type: 'group', columns: 12, label: 'Article' }
+                    - { property: 'content', type: 'fos_ckeditor' }
+                    - { property: 'published' }
+        
+        Audit:
+            class: App\Entity\Audit
+           
+            templates:
+                new: 'form/new.html.twig'
+            form: 
+                fields:
+                    - { property: 'name', label: '', type: 'text' }
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - { property: 'foundationDate', type: 'date', type_options: { widget: 'choice', years: ['1970','1971','1972','1973','1974','1975','1976','1977','1978','1979','1980','1981','1982','1983','1984','1985','1986','1987','1988','1989','1990','1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026','2027','2028','2029','2030','2031'], html5: 'false', format: 'dd.MMMM.yyyy'}  }
+                    - { property: 'mission', type: 'text' }
+                    - { property: 'website', type: 'url' }
+                    - { property: 'place', type: 'text' }
+                    - { property: 'city', type: 'text' }
+                    - { property: 'country', type: 'country' }
+                    - { property: 'email', type: 'email' }
+                    - { property: 'direction', type: 'text' }
+                    - { property: 'directionArrivalYear', label: 'Arrival date : ', type: 'date', type_options: { widget: 'choice', years: ['1970','1971','1972','1973','1974','1975','1976','1977','1978','1979','1980','1981','1982','1983','1984','1985','1986','1987','1988','1989','1990','1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026','2027','2028','2029','2030','2031'], html5: 'false', format: 'dd.MMMM.yyyy'} }
+                    - { property: 'directionProfile', type: 'fos_ckeditor', type_options: {config: ['light']} }
+                    - { property: 'transparencyOwner', label: '', type: 'App\Form\RangeOwnerType' }
+                    - { property: 'identityOwner', type: 'text' }
+                    - { property: 'identityOwnerProfile', type: 'fos_ckeditor', type_options: {config: ['standard']} }
+                    - { property: 'transparencyAccounts',  label: '', type: 'App\Form\RangeAccountsType' }
+                    - { property: 'transparencyAccountsComment', type: 'fos_ckeditor', type_options: {config: ['standard']} }
+                    - { property: 'accreditedBy', type: 'fos_ckeditor', type_options: {config: ['standard']} }
+                    - { property: 'numberEmployees', type: 'number' }
+                    - { property: 'numberVolunteersByYear', type: 'number' }
+                    - { property: 'fee', type: 'money' }
+                    - { property: 'servicesIncluded', type: 'collection' }
+                    - { property: 'securitySelectionProcess', label: '', type: 'App\Form\RangeSecurityType' }
+                    - { property: 'securitySelectionProcessComment', type: 'fos_ckeditor', type_options: {config: ['standard']} }
+                    - { property: 'qualitySelectionProcess',  label: '', type: 'App\Form\RangeQualityType' }
+                    - { property: 'qualitySelectionProcessComment', type: 'fos_ckeditor', type_options: {config: ['standard']} }
+                    - { property: 'longTermeResults',  label: '', type: 'App\Form\RangeResultsType' }
+                    - { property: 'longTermeResultsComment', type: 'fos_ckeditor', type_options: {config: ['standard']} }
+                    - { property: 'futurprojects', type: 'fos_ckeditor', type_options: {config: ['standard']} }
+                    - { property: 'relationshipLocalCommunity',  label: '', type: 'App\Form\RangeRelationshipType' }
+                    - { property: 'relationshipLocalCommunityComment', type: 'fos_ckeditor', type_options: {config: ['standard']} }
+                    - { property: 'localFinancialImpact',  label: '', type: 'App\Form\RangeFinancialType' }
+                    - { property: 'localFinancialImpactComment', type: 'fos_ckeditor', type_options: {config: ['standard']} }
+                    - { property: 'localEcologicalImpact',  label: '', type: 'App\Form\RangeEcologicalType' }
+                    - { property: 'localEcologicalImpactComment', type: 'fos_ckeditor', type_options: {config: ['standard']} }
+
+
+
+
+
+
+
+
+
+        

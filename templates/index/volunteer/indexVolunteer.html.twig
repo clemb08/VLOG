@@ -1,0 +1,28 @@
+{% extends 'index/index.html.twig' %}
+
+{% block title %}Recipe{% endblock %}
+
+{% block banniere %}
+    <div class="banniere banniereVolunteer"></div>
+{% endblock %}
+
+{% block titleCategory %}  
+        <div class="titleCategory"><img class="picto" src="Pictures/volunteer2.svg.png"
+     alt="Volunteer story">Latest Volunteer Project</div>
+{% endblock %}
+
+        {% block firstFunction %} 
+            {% for article in firstVolunteer %}
+                <a class="col-lg-5" href="{{ path('viewRecipe', {'id': article.id}) }}">
+                    {{ parent() }}
+                </a>
+            {% endfor %}
+        {% endblock %}
+
+        {% block listFunction %} 
+            {% for article in listVolunteer %}
+                <a class="col-lg-3" href="{{ path('viewRecipe', {'id': article.id}) }}">
+                    {{ parent() }}
+                </a>
+            {% endfor %}
+        {% endblock %}

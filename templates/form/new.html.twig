@@ -1,0 +1,155 @@
+    {% extends "@EasyAdmin/default/new.html.twig" %}
+    
+    {% block style %}
+		{{ encore_entry_link_tags('easyadmin') }}
+	{% endblock %}
+
+    {% block body_javascripts %}
+	    {{ encore_entry_script_tags('jQuery') }}
+        {{ encore_entry_script_tags('easyadmin') }}
+    {% endblock %}
+
+
+    {% block main %}
+    {% block entity_form %}
+
+    <div class="col-lg-12 formAudit"> 
+    {{ form_start(form) }} 
+        
+        <div class="col-lg-12 form_part form_organisation">
+
+            <div class="title-part">Organisation</div>
+            
+            <div class="form-row col-lg-12 ">
+                <div class="col-lg-12 item widget_name">{{ form_widget(form.name, {'attr': {'size': '30', 'placeholder': 'Name of the organisation'}}) }}</div>
+            </div>
+            <div class="form-row col-lg-12 ">
+                <div class="col-lg-6 item logo">{{ form_row(form.mission) }}</div>
+                <div class="col-lg-4 item mission">{{ form_row(form.imageFile) }}</div>
+            </div>
+            <div class="form-row col-lg-12 ">
+                <div class="col-lg-8 item foundationDate">{{ form_row(form.foundationDate) }}</div>
+            </div>
+            <div class="form-row col-lg-12 ">
+                <div class="col-lg-6 item adresse">{{ form_row(form.place) }}</div>
+                <div class="col-lg-3 item city">{{ form_widget(form.city, {'attr': {'placeholder': 'City'}}) }}</div>
+                <div class="col-lg-3 item country">{{ form_widget(form.country) }}</div>
+            </div>
+            <div class="form-row col-lg-12 ">
+                <div class="col-lg-6 item website">{{ form_row(form.website) }}</div>
+                <div class="col-lg-6 item email">{{ form_row(form.email) }}</div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-12 form_part form_direction">
+            <div class="title-part">Direction</div>
+            <div class="form-row col-lg-12 ">
+                <div class="col-lg-6 item director">{{ form_row(form.direction) }}</div>
+                <div class="col-lg-6 item director_arrival">{{ form_row(form.directionArrivalYear) }}</div>
+            </div>
+            <div class="col-lg-12 item director_profile">{{ form_label(form.directionProfile) }}</div>
+            <div class="col-lg-12 item director_profile">{{ form_widget(form.directionProfile) }}</div>
+        </div>
+
+        <div class="col-lg-12 form_part form_numbers">
+            <div class="title-part">Numbers</div>
+            <div class="col-lg-12 form-row">
+                <div class="col-lg-12 item number_employee">{{ form_row(form.numberEmployees) }}</div>
+                <div class="col-lg-12 item number_volunteer">{{ form_row(form.numberVolunteersByYear) }}</div>
+            </div>
+            <div class="col-lg-12 form-row">
+                <div class="col-lg-6 item fee_paid">
+                <select id="audit_feeExistence" onchange="choix()">
+                    <option value=true>Yes</option>
+                    <option value=false>No</option>
+                </select> 
+                </div>
+                <div class="col-lg-6 item fee">{{ form_widget(form.fee) }}</div>
+            </div>
+                <div class="col-lg-12 item services_included">{{ form_row(form.servicesIncluded) }}</div>
+        </div>
+
+        <div class="col-lg-12 form_part form_ethical">
+            <div class="title-part">Ethical</div>
+            <div class="col-lg-12 form-row">
+                <div class="col-lg-10 item tranparency_owner">{{ form_widget(form.transparencyOwner) }}</div>
+                <div class="col-lg-2"><span id="value_transparency_owner"></span> /10</div>
+            </div>
+                <div class="col-lg-12 item identity_owner">{{ form_row(form.identityOwner) }}</div>
+                
+                <div class="col-lg-12 item identity_owner_profile">{{ form_label(form.identityOwnerProfile) }}</div>
+                <div class="col-lg-12 item identity_owner_profile">{{ form_widget(form.identityOwnerProfile) }}</div>
+            
+            <div class="col-lg-12 form-row">
+                <div class="col-lg-10 item transparency_accounts">{{ form_widget(form.transparencyAccounts) }}</div>
+                <div class="col-lg-2"><span id="value_transparency_accounts"></span> /10</div>
+            </div>
+                <div class="col-lg-12 item transparency_accounts_comment">{{ form_label(form.transparencyAccountsComment) }}</div>
+                <div class="col-lg-12 item transparency_accounts_comment">{{ form_widget(form.transparencyAccountsComment) }}</div>
+
+                <div class="col-lg-12 item accreditedBy">{{ form_label(form.accreditedBy) }}</div>
+                <div class="col-lg-12 item accreditedBy">{{ form_widget(form.accreditedBy) }}</div>
+        </div>
+
+        <div class="col-lg-12 form_part form_recruitement">
+            <div class="title-part">Recruitment</div>
+            <div class="col-lg-12 form-row">
+                <div class="col-lg-10 item security_selection_process">{{ form_widget(form.securitySelectionProcess) }}</div>
+                <div class="col-lg-2"><span id="value_security_selection"></span> /10</div>
+            </div>
+
+                 <div class="col-lg-12 item security_selection_comment">{{ form_label(form.securitySelectionProcessComment) }}</div>
+                 <div class="col-lg-12 item security_selection_comment">{{ form_widget(form.securitySelectionProcessComment) }}</div>
+            
+            <div class="col-lg-12 form-row">
+                <div class="col-lg-10 item quality_selection_process">{{ form_widget(form.qualitySelectionProcess) }}</div>
+                <div class="col-lg-2"><span id="value_quality_selection"></span> /10</div>
+            </div>
+                
+                <div class="col-lg-12 item quality_selection_comment">{{ form_label(form.qualitySelectionProcessComment) }}</div>
+                <div class="col-lg-12 item quality_selection_comment">{{ form_widget(form.qualitySelectionProcessComment) }}</div>
+        </div>
+
+        <div class="col-lg-12 form_part form_localImpact">
+            <div class="title-part">Local Impact</div>
+            <div class="col-lg-12 form-row">
+                <div class="col-lg-10 item relationship_local">{{ form_widget(form.relationshipLocalCommunity) }}</div>
+                <div class="col-lg-2"><span id="value_local_relationship"></span> /10</div>
+            </div>
+                <div class="col-lg-12 item relationship_local_comment">{{ form_label(form.relationshipLocalCommunityComment) }}</div>
+                <div class="col-lg-12 item relationship_local_comment">{{ form_widget(form.relationshipLocalCommunityComment) }}</div>
+            
+            <div class="col-lg-12 form-row">
+                <div class="col-lg-10 item financial_local">{{ form_widget(form.localFinancialImpact) }}</div>
+                <div class="col-lg-2"><span id="value_local_financial"></span> /10</div>
+            </div>
+                <div class="col-lg-12 item financial_local_comment">{{ form_label(form.localFinancialImpactComment) }}</div>
+                <div class="col-lg-12 item financial_local_comment">{{ form_widget(form.localFinancialImpactComment) }}</div>
+
+            <div class="col-lg-12 form-row">
+                <div class="col-lg-10 item ecological_local">{{ form_widget(form.localEcologicalImpact) }}</div>
+                <div class="col-lg-2"><span id="value_local_ecological"></span> /10</div>
+            </div>    
+                <div class="col-lg-12 item ecological_local_comment">{{ form_label(form.localEcologicalImpactComment) }}</div>
+                <div class="col-lg-12 item ecological_local_comment">{{ form_widget(form.localEcologicalImpactComment) }}</div>
+        </div>
+
+        <div class="col-lg-12 form_part form_Conclusion">
+            <div class="title-part">Results</div>
+            <div class="col-lg-12 form-row">
+                <div class="col-lg-10 item longterms_results">{{ form_widget(form.longTermeResults) }}</div>
+                <div class="col-lg-2"><span id="value_results"></span> /10</div>
+            </div>
+                <div class="col-lg-12 item longterms_results_comment">{{ form_label(form.longTermeResultsComment) }}</div>
+                <div class="col-lg-12 item longterms_results_comment">{{ form_widget(form.longTermeResultsComment) }}</div>
+            
+                <div class="col-lg-12 item futur_projects">{{ form_label(form.futurprojects) }}</div>
+                <div class="col-lg-12 item futur_projects">{{ form_widget(form.futurprojects) }}</div>
+        </div>
+
+    {{ form_end(form) }}
+    </div>
+
+    {% endblock %}
+    {% endblock %}

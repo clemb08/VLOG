@@ -1,0 +1,60 @@
+{% extends 'layout.html.twig' %}
+	
+    {% block style %}
+        {{ encore_entry_link_tags('contactPage') }}
+        {{ parent() }}
+    {% endblock %}
+	{% block title %}Contact Page{% endblock %}
+	{% block javascripts %}
+		{{ parent() }}
+	{% endblock %}
+
+{% block body %}
+
+<div class="titlePageContact">Contact Us</div>
+
+
+    <div class="row">
+        <div class="col-lg-8 formContact"> 
+            {{ form_start(form_contact) }} 
+        
+            <div class="row col-lg-11 formContact__name">
+                <div class="col-lg-6 label">{{ form_label(form_contact.name) }}</div>
+                <div class="col-lg-3 widget">{{ form_widget(form_contact.name, {'attr': {'size': '30'}}) }}</div>
+            </div>
+
+            <div class="row col-lg-11 formContact__email">
+                <div class="col-lg-6 label">{{ form_label(form_contact.from) }}</div>
+                <div class="col-lg-3 widget">{{ form_widget(form_contact.from, {'attr': {'size': '30'}}) }}</div>
+            </div>
+
+            <div class="row col-lg-11 formContact__subject">
+                <div class="col-lg-6 label">{{ form_label(form_contact.subject) }}</div>
+                <div class="col-lg-3 widget">{{ form_widget(form_contact.subject, {'attr': {'size': '30'}}) }}</div>
+            </div>
+            <div class="row col-lg-12">
+                <div class="row col-lg-8 formContact__labelMessage">
+                    {{ form_label(form_contact.message) }}
+                </div>
+                <div class="row col-lg-12 formContact__widgetMessage">
+                    {{ form_widget(form_contact.message, {'attr': {'class': 'inputMessage'}}) }}
+                </div>
+            </div>
+
+            <button class="sendIt" type="submit">Send it</button>
+
+            {{ form_end(form_contact) }}
+        </div>
+        <div class"col-lg-2 moreContact">
+        Vous pouvez aussi nous contacter :
+            <ul>
+                <li>Par Message Facebook - </li>
+                <li>Par Message Instagram - </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
+{% block map %}	
+<p></p>
+{% endblock %}

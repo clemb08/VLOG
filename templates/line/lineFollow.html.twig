@@ -1,0 +1,10 @@
+                  <div class="boxIndex lastIndex__follow" style="background-size: cover; background-image: url({{ vich_uploader_asset(article,'imageFile') }});"> 
+                    <div class="lastIndex__follow__boxtitle">
+                        <div class="lastIndex__follow__title"> {{ article.title }} </div>
+                        <div class="barIndexFollow__Top"></div>
+                        <div class="lastIndex__follow__tagline"> {{ article.tagline|striptags|u.truncate(50) ~ '…'}} </div>
+                        <div class="barIndexFollow__Bottom"></div>
+                        <div class="lastIndex__follow__createdAt">Published {{ article.createdAt|date('Y-m-d') }} - {{ article.country|country_name }}  </div>
+                    </div>
+                    <span class="flag-icon flag-icon-{{ article.country|lower }}"></span>
+                </div>

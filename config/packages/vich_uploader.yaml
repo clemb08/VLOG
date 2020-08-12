@@ -1,0 +1,27 @@
+vich_uploader:
+    db_driver: orm
+    mappings:
+        recipe_images:
+            uri_prefix: '%app.path.recipe_images%'
+            upload_destination: '%kernel.project_dir%/public%app.path.recipe_images%'
+        
+        interview_images:
+            uri_prefix: '%app.path.interview_images%'
+            upload_destination: '%kernel.project_dir%/public%app.path.interview_images%'
+
+        foodandpeople_images:
+            uri_prefix: '%app.path.foodandpeople_images%'
+            upload_destination: '%kernel.project_dir%/public%app.path.foodandpeople_images%'
+
+        travel_images:
+            uri_prefix: '%app.path.travel_images%'
+            upload_destination: '%kernel.project_dir%/public%app.path.travel_images%'
+
+
+        volunteer_images:
+            uri_prefix: '%app.path.volunteer_images%'
+            upload_destination: '%kernel.project_dir%/public%app.path.volunteer_images%'
+
+        audit_images:
+            uri_prefix: '%app.path.audit_images%'
+            upload_destination: '%kernel.project_dir%/public%app.path.audit_images%'

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+        {% block head %}
+		<meta charset="utf-8"/>
+		
+		{% block style %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+		<title>{% block title %} Site internet projet {% endblock %}</title>
+        {% endblock %}
+	</head>
+
+    {% block javascripts %}
+	{{ encore_entry_script_tags('app') }}
+	{{ encore_entry_script_tags('qvmap') }}
+	{{ encore_entry_script_tags('mapWorld') }}
+	{{ encore_entry_script_tags('mapConfig') }}
+	{{ encore_entry_script_tags('flags') }}
+	{{ encore_entry_script_tags('home') }}
+	{{ encore_entry_script_tags('jQuery') }}
+    {% endblock %}
+
+
+            <body>
+			<div class="container-fluid">
+	{% block nav %}
+			<div class="head">
+				<div class="skyLine"><img src="Pictures/ImageLogo.png"></div>
+				<nav class="nav navbar sticky-top">
+			    <ul class="nav__ul">
+					<li class="nav__li"><a href="{{ path('home') }}" class="nav__box">Home</a></li>
+				    <li class="nav__li"><a href="aboutUs"><div class="nav__box">About Us</div></a></li> 
+				    <li class="nav__li dropdown dropdown-toggle" aria-haspopup="false"><a href="{{ path('foodandpeople') }}" class="nav__box dropdown">Food &amp; People</a>
+				        <div class="dropdown-content">
+      						<a class="dropdown-item" href="{{ path('recipe') }}">Recipe Book</a>
+     						<a class="dropdown-item" href="{{ path('interview') }}">Interviews</a>
+    					</div></li>
+					<li class="nav__li dropdown dropdown-toggle"><a href="{{ path('volunteer') }}"><div class="nav__box">Volunteer</div></a>
+					<div class="dropdown-content">
+      						<a class="dropdown-item" href="#">NGO's Report</a>
+    					</div></li>
+				    <li class="nav__li dropdown dropdown-toggle"><a href="{{ path('travel') }}"><div class="nav__box">Traveling</div></a>
+					<div class="dropdown-content">
+      						<a class="dropdown-item" href="{{ path('traveladvice') }}">Travel Advice</a>
+    					</div></li>
+				    <li class="nav__li"><a href="{{ path('contact') }}"><div class="nav__box">Contact</div></a></li>
+			    </ul>
+		        </nav>
+			</div>	
+    {% endblock %}
+	{% block body %}
+	{% endblock %}
+		</div>
+	{% block map %}
+	<div class="col-lg-12 discoverByCountry">
+		<div class="titleByCountry col-lg-12"><img class="picto" src="Pictures/earth.svg.png">Discover by country</div>
+		
+			<div class="row">
+				<div class="col-lg-9" id="vmap"></div>
+				<div class="col-lg-3 mapFilter"></div>
+			</div>
+	</div>
+	{% endblock %}
+
+
+        </body>
+	
+    {% block footer %}
+	<footer>
+      <p>The sky's the limit © {{ 'now'|date('Y') }} and beyond.</p>
+    </footer>
+    {% endblock %}
+</html>

@@ -1,0 +1,51 @@
+{% extends "layout.html.twig" %}
+
+    {% block style %}
+        {{ encore_entry_link_tags('index') }}
+        {{ parent() }}
+    {% endblock %}
+	{% block title %} {% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block nav %} {{ parent() }} {% endblock %}
+
+
+ 	{% block body %}
+
+{% block banniere %}    
+    <div class="banniere"></div>
+{% endblock %}
+
+{% block titleCategory %}  
+        <div class="titleCategory">Latest News</h2></div>
+{% endblock %}
+
+{% block headIndex %}
+	    <div class="lastIndex">
+        
+            <div class="row lineFirstIndex">
+{% endblock %}
+
+                {% block firstFunction %}
+                    {% include 'line/lineFirst.html.twig' %}
+                {% endblock %}
+{% block middleIndex %}
+            </div> 
+
+            <div class="row lineFollowIndex">
+{% endblock %}
+                {% block listFunction %}
+                    {% include 'line/lineFollow.html.twig' %}
+                {% endblock %}
+{% block endIndex %}
+		    </div>
+        </div>
+{% endblock %}
+
+{% endblock %} 
+
+{% block map %}	
+{{ parent() }}
+{% endblock %}

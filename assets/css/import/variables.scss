@@ -1,0 +1,95 @@
+@import "font.scss";
+$colorOne: #AA0017;
+$colorTwo: #16003F;
+$colorThree: #003F22;
+$backColorLine: #1F2A36;
+$backColorGround: rgb(217, 227, 230);
+//TITLE-------------------------------------------------------------
+@mixin titleGeneral {
+    font-family: "malindaSript";
+    color: black;
+    font-size: 4em;
+}
+
+@mixin titlePage ($size, $color) {
+    font-family: "typeXriterBlack";
+    color: $color;
+    font-size: $size;
+}
+
+@mixin titleCategory ($color) {
+    font-family: "typeWriterThin";
+    width: 100%;
+    color: whitesmoke;
+    background-color: $color;
+    background: linear-gradient(135deg, rgba(31,42,54,1) 73%, rgba(170,0,23,1) 74%, rgba(22,0,63,1) 75%, rgba(0,63,34,1) 76%, rgba(31,42,54,1) 77%, rgba(102,108,133,1) 81%);
+    /*background: linear-gradient(156deg, rgba(31,42,54,1) 50%, rgba(117,122,150,1) 100%);*/
+    font-size: 1.5em;
+    margin-top: 0%;
+    margin-bottom: 3%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    padding-left: 5%;
+    /*border-bottom: 3px ridge whitesmoke;*/
+    /*border-top: 3px ridge whitesmoke;*/
+    box-shadow: 0px 0px 10px 2px rgba(74, 140, 145, 1);
+}
+
+@mixin textTagline ($size, $color) {
+    font-family: "splendidB";
+    color: $color;
+    font-size: $size;
+}
+
+@mixin textContent ($size, $color) {
+    font-family: "splendidN";
+    color: $color;
+    font-size: $size;
+}
+
+@mixin textDate ($size, $color) {
+    font-family: "splendidN";
+    color: $color;
+    font-size: $size;
+}
+
+//BOXS----------------------------------------------------------------------------------
+@mixin boxLatestNews ($color) {
+    display: inline-block;
+    margin-left: 3%;
+    padding-left: 12px;
+    padding-bottom: 12px;
+    padding-right: 12px;
+    text-align: justify;
+    background: white;
+    border: outset 3px $color;
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(74, 140, 145, 1);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(74, 140, 145, 1);
+    box-shadow: 0px 0px 10px 2px rgba(74, 140, 145, 1);
+}
+
+@mixin titleBoxLatestNews ($color) {
+    display: inline-block;
+    margin-left: 3%;
+    margin-bottom: 0.4%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border: outset 3px $color;
+    background-color: $color;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(74, 140, 145, 1);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(74, 140, 145, 1);
+    box-shadow: 0px 0px 10px 2px rgba(74, 140, 145, 1);
+    @include titlePage(0.5em);
+}
+
+@mixin subtitleBoxLatestNews ($color) {
+    font-family: "typeWriter";
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 0.4%;
+    margin-top: 1%;
+    border-bottom: solid 2px $color;
+}

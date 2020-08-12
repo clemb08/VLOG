@@ -1,0 +1,102 @@
+@import "../import/variables";
+@import "../import/font";
+
+.content-header {
+    @include titleCategory($backColorLine);
+}
+
+.title {
+    color: whitesmoke;
+}
+
+.title-part {
+    @include titlePage(2em, $backColorLine);
+    border-bottom: groove 0.1em $backColorLine;
+}
+
+.form-group label {
+    @include textTagline(1em, $backColorLine);
+}
+
+label {
+    @include textTagline(1.1em, $backColorLine);
+}
+
+.form-group {
+    @include textTagline(1.1em, $backColorLine);
+}
+
+.form-control {
+    margin: 0em;
+    padding: 0em;
+}
+
+.form-group {
+    margin: 0em;
+    padding: 0em;
+}
+
+.form-group label {
+    flex: 40%;
+    text-align: left;
+}
+
+form {
+    display: grid;
+    justify-content: center;
+    width: 90%;
+}
+
+.form-row {
+    padding-left: 0em;
+    padding-right: 0em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.form_part {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: solid 1px $backColorLine;
+}
+
+.item {
+    padding-bottom: 1em;
+}
+
+.form-widget {
+    width: 100%;
+    max-width: 900px;
+}
+
+input {
+    width: 90%;
+}
+
+.widget_name {
+    width: 90%;
+}
+
+.direction_profile {
+    width: 90%;
+}
+
+.rangeOwner {
+    background-color: $backColorLine;
+}
+
+.sendIt{
+    bottom: 2%;
+    background-color: $backColorLine;
+    border-radius: 10px;
+    border: 0;
+    color: whitesmoke;
+    @include textTagline(1.5em, whitesmoke);
+    padding: 1%;
+    &:hover {
+        background-color: lightblue;
+        border: whitesmoke ridge 1px;
+    }
+}

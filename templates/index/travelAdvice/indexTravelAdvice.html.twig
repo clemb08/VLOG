@@ -1,0 +1,28 @@
+{% extends 'index/index.html.twig' %}
+
+{% block title %}Traveling{% endblock %}
+
+{% block banniere %}
+    <div class="banniere banniereTravelAdvice"></div>
+{% endblock %}
+
+{% block titleCategory %}  
+        <div class="titleCategory"><img class="picto" src="Pictures/boussole.svg.png"
+     alt="Travel Story">Latest Travel Story</div>
+{% endblock %}
+
+        {% block firstFunction %} 
+            {% for article in firstTravelAdvice %}
+                <a class="col-lg-5" href="{{ path('viewTravel', {'id': article.id}) }}">
+                    {{ parent() }}
+                </a>
+            {% endfor %}
+        {% endblock %}
+
+        {% block listFunction %} 
+            {% for article in listTravelAdvice %}
+                <a class="col-lg-3" href="{{ path('viewTravel', {'id': article.id}) }}">
+                    {{ parent() }}
+                </a>
+            {% endfor %}
+        {% endblock %}

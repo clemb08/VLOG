@@ -1,0 +1,90 @@
+@import "font";
+@import "variables";
+
+.nav {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	padding: 0;
+	white-space: nowrap;
+	background: $backColorLine;
+	background: linear-gradient(156deg, rgba(31,42,54,1) 50%, rgba(117,122,150,1) 100%);
+	text-decoration: none;
+	
+	&__ul {
+		margin-left: 2%;
+	}
+	
+	&__li {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		&:hover {
+			text-decoration: none;
+			background-color: #667882;
+		}
+	}
+	
+	&__box {
+		display: inline-block;
+		position: relative;
+		top: 0;
+		vertical-align: middle;
+		text-align: center;
+		text-decoration: none;
+		line-height: 3em;
+		padding-left: 10px;
+		padding-right: 5px;
+		@include titlePage(1em, whitesmoke);
+		&:hover {
+			text-decoration: none;
+			@include titlePage(1em, whitesmoke);
+			background-color: #667882;
+			border-bottom: 2px ridge $colorOne;
+		}
+	}
+}
+
+.dropdown-content {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	transform: scaleY(0);
+	transform-origin: top;
+  }
+
+.dropdown:hover .dropdown-content {
+	display: block;
+	transform: scaleY(1);
+	transition-duration: 0.5s;
+  }
+
+  .dropdown-toggle {
+	  color: whitesmoke;
+  }
+
+.dropdown-item {
+	display: block;
+	background-color: #667882;
+	@include titlePage(0.8em, whitesmoke);
+	padding-left: 10%;
+	&:hover {
+		@include titlePage(0.8em, whitesmoke);
+		text-decoration: none;
+		background-color: #667882;
+		border-bottom: 2px ridge $colorOne;
+	}
+}
+
+ul {
+ padding:0;
+ margin:0;
+ list-style-type:none;
+ }
+
+a {
+	text-decoration: none;
+}

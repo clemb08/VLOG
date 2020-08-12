@@ -1,0 +1,233 @@
+@import "./import/variables";
+@import "./index/indexAudit";
+@import "./index/indexFP";
+@import "./index/indexTravel";
+@import "./index/indexTravelAdvice";
+@import "./index/indexInterview";
+@import "./index/indexRecipe";
+@import "./index/indexVolunteer";
+
+.titleCategory {
+    @include titleCategory ($backColorLine);
+}
+
+.lastIndex {
+    display: block;
+    width: 100%;
+    padding-top: 1%;
+    &__first {
+        position: relative;
+        margin-bottom: 5%;
+        margin-right: 0.5%;
+        margin-left: 0.5%;
+        padding-bottom: 2%;
+        height: 250px;
+        box-shadow: 0px 0px 10px 2px rgba(74, 140, 145, 1);
+        transform: scale(1);
+        >.flag-icon {
+            bottom: 0;
+            width: 12%;
+            height: 18%;
+        }
+        &__title {
+            position: absolute;
+            right: 0;
+            padding-top: 1%;
+            width: 100%;
+            text-align: center;
+            @include titlePage(1em, whitesmoke);
+        }
+        &__boxtitle {
+            position: absolute;
+            margin-top: 5%;
+            margin-left: 10%;
+            height: 15%;
+            width: 80%;
+            opacity: 60%;
+            background-color: $backColorLine;
+            box-shadow: 0px 0px 0px 2px rgb(0, 0, 0);
+        }
+        &__tagline {
+            position: absolute;
+            width: 80%;
+            height: 0%;
+            opacity: 0%;
+            margin-top: 8%;
+            margin-left: 10%;
+            padding-right: 2%;
+            padding-left: 2%;
+            line-height: 1em;
+            color: whitesmoke;
+            text-align: justify;
+            @include textTagline(1.2em, whitesmoke);
+        }
+        &__createdAt {
+            position: absolute;
+            width: 80%;
+            height: 10%;
+            bottom: 5%;
+            opacity: 0%;
+            margin-top: 10%;
+            margin-left: 10%;
+            color: whitesmoke;
+            text-align: center;
+            @include textDate(1em, whitesmoke);
+        }
+    }
+    &__follow {
+        height: 250px;
+        margin-right: 0.5%;
+        position: relative;
+        box-shadow: 0px 0px 10px 2px rgba(74, 140, 145, 1);
+        transform: scale(1);
+        >.flag-icon {
+            bottom: 0;
+            width: 15%;
+            height: 15%;
+        }
+        &__title {
+            position: absolute;
+            right: 0;
+            padding-top: 3%;
+            width: 100%;
+            text-align: center;
+            @include titlePage(1em, whitesmoke);
+        }
+        &__boxtitle {
+            position: absolute;
+            margin-top: 5%;
+            margin-left: 10%;
+            height: 15%;
+            width: 80%;
+            opacity: 60%;
+            background-color: $backColorLine;
+            box-shadow: 0px 0px 0px 2px rgb(0, 0, 0);
+        }
+        &__tagline {
+            position: absolute;
+            width: 80%;
+            height: 0%;
+            opacity: 0%;
+            margin-top: 18%;
+            margin-left: 10%;
+            padding-right: 2%;
+            padding-left: 2%;
+            line-height: 1em;
+            color: whitesmoke;
+            text-align: justify;
+            @include textTagline(1em, whitesmoke);
+        }
+        &__createdAt {
+            position: absolute;
+            width: 80%;
+            height: 10%;
+            bottom: 5%;
+            opacity: 0%;
+            margin-top: 10%;
+            margin-left: 10%;
+            color: whitesmoke;
+            text-align: center;
+            @include textDate(0.7em, whitesmoke);
+        }
+    }
+}
+
+flag-icon {
+    bottom: 0;
+    width: 12%;
+    height: 9%;
+}
+
+.barIndex__Bottom {
+    position: absolute;
+    background-color: whitesmoke;
+    bottom: 0;
+    margin-left: 10%;
+    width: 80%;
+    height: 1%;
+    margin-bottom: 7%;
+    transform-origin: right;
+    transform: scaleX(0);
+}
+
+.barIndex__Top {
+    position: absolute;
+    background-color: whitesmoke;
+    margin-left: 10%;
+    width: 80%;
+    height: 1%;
+    margin-top: 7%;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+
+.barIndexFollow__Top {
+    position: absolute;
+    background-color: whitesmoke;
+    margin-left: 10%;
+    width: 80%;
+    height: 1%;
+    margin-top: 13%;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+
+.boxIndex:hover {
+    .lastIndex__first__boxtitle {
+        height: 50%;
+        opacity: 100%;
+        transition-duration: 1s;
+        transition: all ease step-end;
+    }
+    .lastIndex__follow__boxtitle {
+        height: 50%;
+        opacity: 100%;
+        transition-duration: 1s;
+        transition: all ease step-end;
+    }
+    .lastIndex__first__tagline {
+        opacity: 100%;
+        transition-duration: 2s;
+    }
+    .lastIndex__follow__tagline {
+        opacity: 100%;
+        transition-duration: 2s;
+    }
+    .lastIndex__first__createdAt {
+        opacity: 100%;
+        transition-duration: 2s;
+    }
+    .lastIndex__follow__createdAt {
+        opacity: 100%;
+        transition-duration: 2s;
+    }
+    .barIndex__Bottom {
+        transform: scaleX(1);
+        transition-duration: 2s;
+    }
+    .barIndex__Top {
+        transform: scaleX(1);
+        transition-duration: 2s;
+    }
+    .barIndexFollow__Top {
+        transform: scaleX(1);
+        transition-duration: 2s;
+    }
+}
+
+.lastIndex__first:hover {
+        transform: scale(1.2);
+        transition-duration: 2s;
+        z-index: 2;
+}
+
+.lastIndex__follow:hover {
+    transform: scale(1.5);
+    transition-duration: 2s;
+    z-index: 2;
+}
+
+.lineFirstIndex,
+.lineFollowIndex {
+    justify-content: center;
+}

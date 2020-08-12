@@ -1,0 +1,82 @@
+@import "./import/variables";
+@import "./import/font";
+
+.titlePageContact {
+    @include titleCategory ($backColorLine)
+}
+
+.formContact{
+    position: relative;
+    background-color: whitesmoke;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 1%;
+
+        &__name {
+            display: inline-block;
+            margin-top: 1%;
+            margin-bottom: 1%;
+            @include textTagline(1.5em, black)
+        }
+        &__email{
+            display: inline-block;
+            margin-top: 1%;
+            margin-bottom: 1%;
+            @include textTagline(1.5em, black)
+        }
+        &__subject{
+            display: inline-block;
+            margin-top: 1%;
+            margin-bottom: 1%;
+            @include textTagline(1.5em, black)
+        }
+        &__message{
+            display: inline-block;
+            margin-top: 1%;
+            margin-bottom: 1%;
+            @include textTagline(1.5em, black)
+        }
+        &__widgetMessage {
+            display: inline-block;
+            margin-bottom: 3%;
+            margin-left: 5%;
+            @include textTagline(1.5em, black)
+        }
+        &__labelMessage {
+            display: inline-block;
+            margin-bottom: 2%;
+            margin-left: 5%;
+            @include textTagline(1.5em, black)
+        }
+}
+
+.label {
+    text-align: left;
+}
+
+.inputMessage {
+    width: 100%;
+    height: 100%;
+    margin-left: 5%;
+    margin-bottom: 10%;
+}
+
+.inputLabel {
+    margin-left: 5%;
+}
+
+.sendIt{
+    position: relative;
+    left: 80%;
+    bottom: 2%;
+    background-color: $backColorLine;
+    border-radius: 10px;
+    border: 0;
+    color: whitesmoke;
+    @include textTagline(1.5em, whitesmoke);
+    padding: 1%;
+    &:hover {
+        background-color: lightblue;
+        border: whitesmoke ridge 1px;
+    }
+}

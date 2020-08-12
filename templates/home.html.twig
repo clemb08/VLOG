@@ -1,0 +1,136 @@
+{% extends "layout.html.twig" %}
+	{% block style %}
+        {{ encore_entry_link_tags('home') }}
+        {{ parent() }}
+    {% endblock %}
+	{% block title %}Home Page{% endblock %}
+	{% block javascripts %}
+		{{ parent() }}
+	{% endblock %}
+	{% block body %}
+	
+	<div class="banniere"></div>
+	{# -----------------------TRAVELS---------------------------------------------------#}
+		<div class="col-lg-12  blockLast">
+			<div class="row">
+				<div class="titleTravel col-lg-12"><img class="picto" src="Pictures/boussole.svg.png"
+     alt="Travel story"> Latest Travels</div>
+			</div>
+			<div class="row"> 
+				<div class="row col-lg-9 lastIndex">
+					<div class="col-lg-4 lineLastRecipe">
+					{% for article in firstTravel %}
+						<a href="{{ path('viewRecipe', {'id': article.id}) }}">
+						{% include 'line/lineFirst.html.twig' %}
+						</a>
+					{% endfor %}
+					</div>
+
+					<div class="col-lg-5 lineLastRecipe">
+					{% for article in nextTravel %}
+						<a href="{{ path('viewRecipe', {'id': article.id}) }}">
+						{% include 'line/lineFollow.html.twig' %}
+						</a>
+					{% endfor %}
+					</div>
+			
+					<div class="col-lg-3 lineLastRecipe">
+					{% for article in listTravel %}
+						<a href="{{ path('viewRecipe', {'id': article.id}) }}">
+							{% include 'line/lineThird.html.twig' %}
+						</a>
+					{% endfor %}
+					</div>
+				</div>
+				<div class="col-lg-3 About">
+					<div class="textAbout">A meeting plus a cultural share with people from abroad the world. Discover with us the house of incredible human.</div>
+					<div class="col-lg-12 other">Discover our Travel Advice</div>
+				</div>
+			</div>
+		</div>
+{# -----------------------FOOD&PEOPLE---------------------------------------------------#}
+		<div class="col-lg-12  blockLast">
+			<div class="row">
+				<div class="titleFP col-lg-12"><img class="picto" src="Pictures/poele.svg.png"
+     alt="Cooking story">Latest Food &amp; People</div>
+			</div>
+			<div class="row"> 
+				<div class="row col-lg-9 lastIndex">
+					<div class="col-lg-4 lineLastRecipe">
+					{% for article in firstRecipe %}
+						<a href="{{ path('viewRecipe', {'id': article.id}) }}">
+						{% include 'line/lineFirst.html.twig' %}
+						</a>
+					{% endfor %}
+					</div>
+
+					<div class="col-lg-5 lineLastRecipe">
+					{% for article in nextRecipe %}
+						<a href="{{ path('viewRecipe', {'id': article.id}) }}">
+						{% include 'line/lineFollow.html.twig' %}
+						</a>
+					{% endfor %}
+					</div>
+			
+					<div class="col-lg-3 lineLastRecipe">
+					{% for article in listRecipe %}
+						<a href="{{ path('viewRecipe', {'id': article.id}) }}">
+							{% include 'line/lineThird.html.twig' %}
+						</a>
+					{% endfor %}
+					</div>
+				</div>
+				<div class="col-lg-3 About">
+					<div class="textAbout">A meeting plus a cultural share with people from abroad the world. Discover with us the house of incredible human.</div>
+					<div class="col-lg-12 other">Discover our interviews</div>
+					<div class="col-lg-12 other">Discover our Recipes Book</div>
+				</div>
+			</div>
+		</div>
+{# -----------------------VOLUNTEER---------------------------------------------------#}
+		<div class="col-lg-12  blockLast">
+			<div class="row">
+				<div class="titleVolunteer col-lg-12"><img class="picto" src="Pictures/volunteer2.svg.png"
+     alt="Volunteer story">Latest Volunteering</div>
+			</div>
+			<div class="row"> 
+				<div class="row col-lg-9 lastIndex">
+					<div class="col-lg-4 lineLastRecipe">
+					{% for article in firstVolunteer %}
+						<a href="{{ path('viewRecipe', {'id': article.id}) }}">
+						{% include 'line/lineFirst.html.twig' %}
+						</a>
+					{% endfor %}
+					</div>
+
+					<div class="col-lg-5 lineLastRecipe">
+					{% for article in nextVolunteer %}
+						<a href="{{ path('viewRecipe', {'id': article.id}) }}">
+						{% include 'line/lineFollow.html.twig' %}
+						</a>
+					{% endfor %}
+					</div>
+			
+					<div class="col-lg-3 lineLastRecipe">
+					{% for article in listVolunteer %}
+						<a href="{{ path('viewRecipe', {'id': article.id}) }}">
+							{% include 'line/lineThird.html.twig' %}
+						</a>
+					{% endfor %}
+					</div>
+				</div>
+				<div class="col-lg-3 About">
+					<div class="textAbout">A meeting plus a cultural share with people from abroad the world. Discover with us the house of incredible human.</div>
+					<div class="col-lg-12 other">Discover our NGO's reports</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	{% endblock %}
+
+	{% block map %}
+	{{ parent() }}
+	{% endblock %}
+
+	{% block footer %} {{ parent() }} {% endblock %}
